@@ -1,0 +1,486 @@
+{
+  "actions": [],
+  "allow_rename": 0,
+  "autoname": "format:KYN-INQ-{YYYY}-{#####}",
+  "creation": "2026-05-19 00:00:00",
+  "docstatus": 0,
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "section_identity",
+    "name",
+    "message_id",
+    "source",
+    "received_date",
+    "column_break_identity",
+    "workflow_state",
+    "priority",
+    "sla_due_datetime",
+    "sla_status",
+    "section_email",
+    "email_from",
+    "sender_name",
+    "email_to",
+    "column_break_email",
+    "email_cc",
+    "email_subject",
+    "section_email_body",
+    "email_body",
+    "section_ai",
+    "ai_confidence_score",
+    "ai_classification_reason",
+    "manual_review_flag",
+    "column_break_ai",
+    "ai_draft_reply",
+    "ai_draft_quotation_lines",
+    "section_assignment",
+    "assigned_sales_engineer",
+    "application_engineer",
+    "column_break_assignment",
+    "customer_type",
+    "lead",
+    "customer",
+    "contact",
+    "section_customer_info",
+    "company_name",
+    "contact_phone",
+    "delivery_location",
+    "column_break_customer",
+    "requested_delivery_date",
+    "inquiry_summary",
+    "section_items",
+    "product_lines",
+    "section_conversion",
+    "linked_quotation",
+    "linked_sales_order",
+    "column_break_conversion",
+    "lost_reason",
+    "lost_reason_notes",
+    "section_ae",
+    "ae_requirements",
+    "section_logs",
+    "assignment_log",
+    "activity_log",
+    "section_followups",
+    "follow_ups"
+  ],
+  "fields": [
+    {
+      "fieldname": "section_identity",
+      "fieldtype": "Section Break",
+      "label": "Inquiry Identity"
+    },
+    {
+      "fieldname": "message_id",
+      "fieldtype": "Data",
+      "label": "Message ID",
+      "unique": 1,
+      "read_only": 1,
+      "in_list_view": 0,
+      "description": "Original email Message-ID for deduplication"
+    },
+    {
+      "fieldname": "source",
+      "fieldtype": "Select",
+      "label": "Source",
+      "options": "Email\nWhatsApp\nWeb Form\nManual",
+      "default": "Email",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "received_date",
+      "fieldtype": "Datetime",
+      "label": "Received Date",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "column_break_identity",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "workflow_state",
+      "fieldtype": "Data",
+      "label": "Status",
+      "read_only": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1,
+      "bold": 1
+    },
+    {
+      "fieldname": "priority",
+      "fieldtype": "Select",
+      "label": "Priority",
+      "options": "Low\nMedium\nHigh\nCritical",
+      "default": "Medium",
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "sla_due_datetime",
+      "fieldtype": "Datetime",
+      "label": "SLA Due",
+      "read_only": 1
+    },
+    {
+      "fieldname": "sla_status",
+      "fieldtype": "Select",
+      "label": "SLA Status",
+      "options": "\nOn Track\nAt Risk\nBreached",
+      "read_only": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "section_email",
+      "fieldtype": "Section Break",
+      "label": "Email Details"
+    },
+    {
+      "fieldname": "email_from",
+      "fieldtype": "Data",
+      "label": "From",
+      "options": "Email",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "sender_name",
+      "fieldtype": "Data",
+      "label": "Sender Name",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "email_to",
+      "fieldtype": "Data",
+      "label": "To",
+      "options": "Email",
+      "reqd": 1
+    },
+    {
+      "fieldname": "column_break_email",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "email_cc",
+      "fieldtype": "Small Text",
+      "label": "CC"
+    },
+    {
+      "fieldname": "email_subject",
+      "fieldtype": "Data",
+      "label": "Subject",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "section_email_body",
+      "fieldtype": "Section Break",
+      "label": "Email Body",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "email_body",
+      "fieldtype": "Long Text",
+      "label": "Email Body (Raw)",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_ai",
+      "fieldtype": "Section Break",
+      "label": "AI Analysis",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "ai_confidence_score",
+      "fieldtype": "Float",
+      "label": "AI Confidence Score",
+      "read_only": 1,
+      "description": "0.0 = definitely not inquiry, 1.0 = definitely pricing inquiry"
+    },
+    {
+      "fieldname": "ai_classification_reason",
+      "fieldtype": "Small Text",
+      "label": "Classification Reason",
+      "read_only": 1
+    },
+    {
+      "fieldname": "manual_review_flag",
+      "fieldtype": "Check",
+      "label": "Requires Manual Review",
+      "default": 0
+    },
+    {
+      "fieldname": "column_break_ai",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "ai_draft_reply",
+      "fieldtype": "Text Editor",
+      "label": "AI Draft Reply",
+      "description": "Claude-generated acknowledgment reply — review before sending"
+    },
+    {
+      "fieldname": "ai_draft_quotation_lines",
+      "fieldtype": "Text",
+      "label": "AI Suggested Quotation Lines",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_assignment",
+      "fieldtype": "Section Break",
+      "label": "Assignment & Ownership"
+    },
+    {
+      "fieldname": "assigned_sales_engineer",
+      "fieldtype": "Link",
+      "label": "Assigned Sales Engineer",
+      "options": "User",
+      "reqd": 1,
+      "in_list_view": 1,
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "application_engineer",
+      "fieldtype": "Link",
+      "label": "Application Engineer",
+      "options": "User"
+    },
+    {
+      "fieldname": "column_break_assignment",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "customer_type",
+      "fieldtype": "Select",
+      "label": "Customer Type",
+      "options": "\nNew Lead\nExisting Customer",
+      "in_standard_filter": 1
+    },
+    {
+      "fieldname": "lead",
+      "fieldtype": "Link",
+      "label": "Lead",
+      "options": "Lead",
+      "depends_on": "eval:doc.customer_type == 'New Lead'"
+    },
+    {
+      "fieldname": "customer",
+      "fieldtype": "Link",
+      "label": "Customer",
+      "options": "Customer",
+      "depends_on": "eval:doc.customer_type == 'Existing Customer'"
+    },
+    {
+      "fieldname": "contact",
+      "fieldtype": "Link",
+      "label": "Contact",
+      "options": "Contact"
+    },
+    {
+      "fieldname": "section_customer_info",
+      "fieldtype": "Section Break",
+      "label": "Customer Information"
+    },
+    {
+      "fieldname": "company_name",
+      "fieldtype": "Data",
+      "label": "Company Name",
+      "in_list_view": 0
+    },
+    {
+      "fieldname": "contact_phone",
+      "fieldtype": "Data",
+      "label": "Phone",
+      "options": "Phone"
+    },
+    {
+      "fieldname": "delivery_location",
+      "fieldtype": "Data",
+      "label": "Delivery Location"
+    },
+    {
+      "fieldname": "column_break_customer",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "requested_delivery_date",
+      "fieldtype": "Date",
+      "label": "Requested Delivery Date"
+    },
+    {
+      "fieldname": "inquiry_summary",
+      "fieldtype": "Text Editor",
+      "label": "Inquiry Summary"
+    },
+    {
+      "fieldname": "section_items",
+      "fieldtype": "Section Break",
+      "label": "Requested Items / Services"
+    },
+    {
+      "fieldname": "product_lines",
+      "fieldtype": "Table",
+      "label": "Product Lines",
+      "options": "Inquiry Product Line"
+    },
+    {
+      "fieldname": "section_conversion",
+      "fieldtype": "Section Break",
+      "label": "Conversion"
+    },
+    {
+      "fieldname": "linked_quotation",
+      "fieldtype": "Link",
+      "label": "Linked Quotation",
+      "options": "Quotation",
+      "read_only": 1
+    },
+    {
+      "fieldname": "linked_sales_order",
+      "fieldtype": "Link",
+      "label": "Linked Sales Order",
+      "options": "Sales Order",
+      "read_only": 1
+    },
+    {
+      "fieldname": "column_break_conversion",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "lost_reason",
+      "fieldtype": "Link",
+      "label": "Lost Reason",
+      "options": "Inquiry Lost Reason",
+      "depends_on": "eval:doc.workflow_state == 'Lost / Closed'"
+    },
+    {
+      "fieldname": "lost_reason_notes",
+      "fieldtype": "Text",
+      "label": "Lost Reason Notes",
+      "depends_on": "eval:doc.workflow_state == 'Lost / Closed'"
+    },
+    {
+      "fieldname": "section_ae",
+      "fieldtype": "Section Break",
+      "label": "Application Engineer Requirements",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "ae_requirements",
+      "fieldtype": "Text",
+      "label": "AE Requirements Checklist (JSON)",
+      "description": "Stores AE checklist state as JSON"
+    },
+    {
+      "fieldname": "section_logs",
+      "fieldtype": "Section Break",
+      "label": "Assignment & Activity Log",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "assignment_log",
+      "fieldtype": "Table",
+      "label": "Assignment Log",
+      "options": "Inquiry Assignment Log",
+      "read_only": 1
+    },
+    {
+      "fieldname": "activity_log",
+      "fieldtype": "Table",
+      "label": "Activity Log",
+      "options": "Inquiry Activity Log",
+      "read_only": 1
+    },
+    {
+      "fieldname": "section_followups",
+      "fieldtype": "Section Break",
+      "label": "Follow-Ups",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "follow_ups",
+      "fieldtype": "Table",
+      "label": "Follow-Ups",
+      "options": "Inquiry Follow-Up"
+    }
+  ],
+  "icon": "fa fa-envelope-open",
+  "in_create": 1,
+  "is_submittable": 0,
+  "links": [
+    {
+      "link_doctype": "Quotation",
+      "link_fieldname": "custom_inquiry_ticket"
+    },
+    {
+      "link_doctype": "Sales Order",
+      "link_fieldname": "custom_inquiry_ticket"
+    }
+  ],
+  "modified": "2026-05-19 00:00:00",
+  "modified_by": "Administrator",
+  "module": "Kayan Inquiry",
+  "name": "Email Inquiry Ticket",
+  "naming_rule": "Expression",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Inquiry Admin",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 1,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Inquiry Sales Manager",
+      "share": 1,
+      "write": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 1,
+      "export": 0,
+      "print": 1,
+      "read": 1,
+      "report": 1,
+      "role": "Inquiry Sales Engineer",
+      "share": 0,
+      "write": 1,
+      "if_owner": 1
+    },
+    {
+      "create": 0,
+      "delete": 0,
+      "email": 0,
+      "export": 0,
+      "print": 0,
+      "read": 1,
+      "report": 1,
+      "role": "Inquiry Application Engineer",
+      "share": 0,
+      "write": 1,
+      "if_owner": 0
+    }
+  ],
+  "quick_entry": 0,
+  "sort_field": "received_date",
+  "sort_order": "DESC",
+  "title_field": "email_subject",
+  "track_changes": 1,
+  "track_seen": 1
+}

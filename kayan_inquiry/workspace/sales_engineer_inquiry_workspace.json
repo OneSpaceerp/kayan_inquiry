@@ -1,0 +1,102 @@
+{
+  "doctype": "Workspace",
+  "docstatus": 0,
+  "name": "Sales Engineer Inquiry Workspace",
+  "module": "Kayan Inquiry",
+  "label": "Sales Engineer Inquiry Workspace",
+  "title": "My Inquiry Pipeline",
+  "icon": "briefcase",
+  "is_standard": 1,
+  "public": 1,
+  "for_user": "",
+  "sequence_id": 10,
+  "roles": [
+    {
+      "doctype": "Has Role",
+      "role": "Inquiry Sales Engineer"
+    }
+  ],
+  "content": "[{\"id\":\"se_header_block\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h4'><b>My Inquiry Pipeline</b></span>\",\"col\":12}},{\"id\":\"se_number_cards_block\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"My Open Tickets\",\"col\":4}},{\"id\":\"se_number_cards_at_risk\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"My At Risk Tickets\",\"col\":4}},{\"id\":\"se_number_cards_breached\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"My Breached Tickets\",\"col\":4}},{\"id\":\"se_spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"se_shortcuts_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h6'><b>Quick Actions</b></span>\",\"col\":12}},{\"id\":\"se_shortcut_my_tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Tickets\",\"col\":4}},{\"id\":\"se_shortcut_create_followup\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Create Follow-Up\",\"col\":4}},{\"id\":\"se_shortcut_quotations\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Quotations\",\"col\":4}},{\"id\":\"se_spacer_2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"se_chart_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h6'><b>Pipeline Overview</b></span>\",\"col\":12}},{\"id\":\"se_chart_tickets_by_stage\",\"type\":\"chart\",\"data\":{\"chart_name\":\"SE Tickets by Stage\",\"col\":12}}]",
+  "number_cards": [
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "My Open Tickets",
+      "label": "My Open Tickets"
+    },
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "My At Risk Tickets",
+      "label": "At Risk"
+    },
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "My Breached Tickets",
+      "label": "Breached"
+    }
+  ],
+  "charts": [
+    {
+      "doctype": "Workspace Chart",
+      "chart_name": "SE Tickets by Stage",
+      "label": "Tickets by Stage"
+    }
+  ],
+  "shortcuts": [
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "My Tickets",
+      "link_to": "Email Inquiry Ticket",
+      "type": "DocType",
+      "icon": "list",
+      "color": "#2490ef",
+      "format": "{} Tickets",
+      "stats_filter": "{\"assigned_sales_engineer\": [\"=\", \"frappe.session.user\"]}",
+      "filters_json": "{\"assigned_sales_engineer\": [\"=\", \"frappe.session.user\"]}"
+    },
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "Create Follow-Up",
+      "link_to": "Inquiry Follow-Up",
+      "type": "DocType",
+      "icon": "calendar",
+      "color": "#29CD42",
+      "doc_view": "New"
+    },
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "All Quotations",
+      "link_to": "Quotation",
+      "type": "DocType",
+      "icon": "file",
+      "color": "#7578F6"
+    }
+  ],
+  "links": [
+    {
+      "doctype": "Workspace Link",
+      "label": "Email Inquiry Ticket",
+      "link_to": "Email Inquiry Ticket",
+      "link_type": "DocType",
+      "type": "Link",
+      "onboard": 1
+    },
+    {
+      "doctype": "Workspace Link",
+      "label": "Inquiry Follow-Up",
+      "link_to": "Inquiry Follow-Up",
+      "link_type": "DocType",
+      "type": "Link"
+    },
+    {
+      "doctype": "Workspace Link",
+      "label": "Quotation",
+      "link_to": "Quotation",
+      "link_type": "DocType",
+      "type": "Link"
+    }
+  ],
+  "creation": "2026-05-19 00:00:00.000000",
+  "modified": "2026-05-19 00:00:00.000000",
+  "owner": "Administrator",
+  "modified_by": "Administrator"
+}

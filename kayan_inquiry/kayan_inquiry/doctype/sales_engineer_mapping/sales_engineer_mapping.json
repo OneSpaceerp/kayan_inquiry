@@ -1,0 +1,102 @@
+{
+  "actions": [],
+  "autoname": "format:KYN-SEM-{#####}",
+  "creation": "2026-05-19 00:00:00",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "email_address",
+    "sales_engineer",
+    "alias_description",
+    "is_active",
+    "column_break_1",
+    "fallback_rule",
+    "fallback_user",
+    "section_notes",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "email_address",
+      "fieldtype": "Data",
+      "label": "Email Address (To Match)",
+      "options": "Email",
+      "reqd": 1,
+      "unique": 1,
+      "in_list_view": 1,
+      "bold": 1,
+      "description": "The 'To' address that will be matched in incoming emails"
+    },
+    {
+      "fieldname": "sales_engineer",
+      "fieldtype": "Link",
+      "label": "Sales Engineer",
+      "options": "User",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "alias_description",
+      "fieldtype": "Data",
+      "label": "Alias Description",
+      "description": "e.g. 'Main sales inbox → Ahmed Al-Hassan'",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "is_active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "fallback_rule",
+      "fieldtype": "Select",
+      "label": "Fallback Rule",
+      "options": "None\nRound Robin\nAssign to Manager",
+      "default": "None",
+      "description": "Used when Sales Engineer is unavailable or unmapped"
+    },
+    {
+      "fieldname": "fallback_user",
+      "fieldtype": "Link",
+      "label": "Fallback User",
+      "options": "User",
+      "depends_on": "eval:doc.fallback_rule == 'Assign to Manager'"
+    },
+    {
+      "fieldname": "section_notes",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes"
+    }
+  ],
+  "modified": "2026-05-19 00:00:00",
+  "modified_by": "Administrator",
+  "module": "Kayan Inquiry",
+  "name": "Sales Engineer Mapping",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "role": "Inquiry Admin"
+    },
+    {
+      "read": 1,
+      "role": "Inquiry Sales Manager"
+    }
+  ],
+  "sort_field": "email_address",
+  "sort_order": "ASC",
+  "title_field": "email_address"
+}

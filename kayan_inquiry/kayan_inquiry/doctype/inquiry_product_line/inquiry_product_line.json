@@ -1,0 +1,75 @@
+{
+  "actions": [],
+  "creation": "2026-05-19 00:00:00",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "item_code",
+    "item_description",
+    "quantity",
+    "uom",
+    "column_break_1",
+    "technical_notes",
+    "ai_suggested"
+  ],
+  "fields": [
+    {
+      "fieldname": "item_code",
+      "fieldtype": "Link",
+      "label": "Item Code",
+      "options": "Item",
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "item_description",
+      "fieldtype": "Data",
+      "label": "Description",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 4
+    },
+    {
+      "fieldname": "quantity",
+      "fieldtype": "Float",
+      "label": "Qty",
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "uom",
+      "fieldtype": "Link",
+      "label": "UOM",
+      "options": "UOM",
+      "in_list_view": 1,
+      "columns": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "technical_notes",
+      "fieldtype": "Small Text",
+      "label": "Technical Notes",
+      "in_list_view": 1,
+      "columns": 3
+    },
+    {
+      "fieldname": "ai_suggested",
+      "fieldtype": "Check",
+      "label": "AI Suggested",
+      "default": 0,
+      "in_list_view": 1,
+      "columns": 1
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-05-19 00:00:00",
+  "modified_by": "Administrator",
+  "module": "Kayan Inquiry",
+  "name": "Inquiry Product Line",
+  "owner": "Administrator",
+  "permissions": []
+}

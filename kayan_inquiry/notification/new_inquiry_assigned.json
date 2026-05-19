@@ -1,0 +1,25 @@
+{
+  "doctype": "Notification",
+  "docstatus": 0,
+  "name": "New Inquiry Assigned to Sales Engineer",
+  "enabled": 1,
+  "channel": "Email",
+  "send_system_notification": 1,
+  "document_type": "Email Inquiry Ticket",
+  "event": "New",
+  "condition": "doc.assigned_sales_engineer",
+  "recipients": [
+    {
+      "doctype": "Notification Recipient",
+      "receiver_by_document_field": "assigned_sales_engineer"
+    }
+  ],
+  "subject": "[New Inquiry] {{ doc.email_subject }} \u2014 {{ doc.name }}",
+  "message": "<div style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 640px; margin: 0 auto;\">\n  <div style=\"background: #1a73e8; color: #ffffff; padding: 16px 24px; border-radius: 8px 8px 0 0;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">New Inquiry Assigned to You</h2>\n  </div>\n  <div style=\"background: #ffffff; padding: 24px; border: 1px solid #e0e0e0;\">\n    <p style=\"margin: 0 0 16px; color: #333;\">A new inquiry ticket has been created and assigned to you. Please review and take action within the SLA window.</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 16px;\">\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f8f9fa; border: 1px solid #e0e0e0; font-weight: 600; width: 35%; color: #555;\">Ticket ID</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.name }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f8f9fa; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Subject</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.email_subject }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f8f9fa; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">From</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.sender_name or '' }} &lt;{{ doc.email_from }}&gt;</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f8f9fa; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Company</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.company_name or 'N/A' }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f8f9fa; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Priority</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">\n          {% if doc.priority == 'Urgent' %}<span style=\"color: #d32f2f; font-weight: 700;\">{{ doc.priority }}</span>\n          {% elif doc.priority == 'High' %}<span style=\"color: #e65100; font-weight: 600;\">{{ doc.priority }}</span>\n          {% else %}{{ doc.priority or 'Medium' }}{% endif %}\n        </td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f8f9fa; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">AI Confidence</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.ai_confidence_score or 'N/A' }}%</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f8f9fa; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">SLA Due</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ frappe.utils.format_datetime(doc.sla_due_datetime) if doc.sla_due_datetime else 'Not Set' }}</td>\n      </tr>\n    </table>\n    <div style=\"text-align: center; margin-top: 20px;\">\n      <a href=\"{{ frappe.utils.get_url_to_form('Email Inquiry Ticket', doc.name) }}\" style=\"display: inline-block; background: #1a73e8; color: #ffffff; padding: 10px 28px; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 14px;\">View Ticket</a>\n    </div>\n  </div>\n  <div style=\"background: #f8f9fa; padding: 12px 24px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 8px 8px; text-align: center;\">\n    <p style=\"margin: 0; font-size: 12px; color: #888;\">Kayan Inquiry Management System</p>\n  </div>\n</div>",
+  "attach_print": 0,
+  "module": "Kayan Inquiry",
+  "creation": "2026-05-19 00:00:00.000000",
+  "modified": "2026-05-19 00:00:00.000000",
+  "owner": "Administrator",
+  "modified_by": "Administrator"
+}

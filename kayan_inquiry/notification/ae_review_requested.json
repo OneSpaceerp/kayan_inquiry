@@ -1,0 +1,26 @@
+{
+  "doctype": "Notification",
+  "docstatus": 0,
+  "name": "AE Technical Review Requested",
+  "enabled": 1,
+  "channel": "Email",
+  "send_system_notification": 1,
+  "document_type": "Email Inquiry Ticket",
+  "event": "Value Change",
+  "value_changed": "workflow_state",
+  "condition": "doc.workflow_state == 'Application Engineer Review'",
+  "recipients": [
+    {
+      "doctype": "Notification Recipient",
+      "receiver_by_document_field": "application_engineer"
+    }
+  ],
+  "subject": "[Technical Review Required] {{ doc.name }} \u2014 {{ doc.email_subject }}",
+  "message": "<div style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 640px; margin: 0 auto;\">\n  <div style=\"background: #7b1fa2; color: #ffffff; padding: 16px 24px; border-radius: 8px 8px 0 0;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">\ud83d\udd2c Technical Review Required</h2>\n  </div>\n  <div style=\"background: #ffffff; padding: 24px; border: 1px solid #e0e0e0;\">\n    <p style=\"margin: 0 0 16px; color: #333;\">A ticket has been escalated to you for technical/application engineering review. Please evaluate the inquiry and complete the AE checklist.</p>\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 16px;\">\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f3e5f5; border: 1px solid #e0e0e0; font-weight: 600; width: 35%; color: #555;\">Ticket ID</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.name }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f3e5f5; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Subject</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.email_subject }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f3e5f5; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">From</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.sender_name or '' }} &lt;{{ doc.email_from }}&gt;</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f3e5f5; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Company</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.company_name or 'N/A' }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f3e5f5; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Sales Engineer</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.assigned_sales_engineer }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f3e5f5; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Priority</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.priority or 'Medium' }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #f3e5f5; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">SLA Due</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ frappe.utils.format_datetime(doc.sla_due_datetime) if doc.sla_due_datetime else 'Not Set' }}</td>\n      </tr>\n    </table>\n    <div style=\"background: #fff3e0; border-left: 4px solid #ff9800; padding: 12px 16px; margin-bottom: 16px; border-radius: 0 4px 4px 0;\">\n      <strong style=\"color: #e65100;\">Action Required:</strong>\n      <ul style=\"margin: 8px 0 0; padding-left: 20px; color: #333;\">\n        <li>Review the technical requirements of this inquiry</li>\n        <li>Complete the AE Checklist on the ticket</li>\n        <li>Add any technical notes or recommendations</li>\n        <li>Submit the review to move the ticket forward</li>\n      </ul>\n    </div>\n    <div style=\"text-align: center; margin-top: 20px;\">\n      <a href=\"{{ frappe.utils.get_url_to_form('Email Inquiry Ticket', doc.name) }}\" style=\"display: inline-block; background: #7b1fa2; color: #ffffff; padding: 10px 28px; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 14px;\">Open Ticket & Start Review</a>\n    </div>\n  </div>\n  <div style=\"background: #f8f9fa; padding: 12px 24px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 8px 8px; text-align: center;\">\n    <p style=\"margin: 0; font-size: 12px; color: #888;\">Kayan Inquiry Management System</p>\n  </div>\n</div>",
+  "attach_print": 0,
+  "module": "Kayan Inquiry",
+  "creation": "2026-05-19 00:00:00.000000",
+  "modified": "2026-05-19 00:00:00.000000",
+  "owner": "Administrator",
+  "modified_by": "Administrator"
+}

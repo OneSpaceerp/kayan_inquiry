@@ -1,0 +1,70 @@
+{
+  "doctype": "Workspace",
+  "docstatus": 0,
+  "name": "Application Engineer Workspace",
+  "module": "Kayan Inquiry",
+  "label": "Application Engineer Workspace",
+  "title": "Technical Reviews",
+  "icon": "tool",
+  "is_standard": 1,
+  "public": 1,
+  "for_user": "",
+  "sequence_id": 20,
+  "roles": [
+    {
+      "doctype": "Has Role",
+      "role": "Inquiry Application Engineer"
+    }
+  ],
+  "content": "[{\"id\":\"ae_header_block\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h4'><b>Technical Reviews</b></span>\",\"col\":12}},{\"id\":\"ae_number_cards_pending\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Pending AE Reviews\",\"col\":4}},{\"id\":\"ae_spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ae_shortcuts_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h6'><b>Quick Actions</b></span>\",\"col\":12}},{\"id\":\"ae_shortcut_my_reviews\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"My Reviews\",\"col\":4}},{\"id\":\"ae_shortcut_all_tickets\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Inquiry Tickets\",\"col\":4}},{\"id\":\"ae_spacer_2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"ae_links_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h6'><b>References</b></span>\",\"col\":12}}]",
+  "number_cards": [
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "Pending AE Reviews",
+      "label": "Pending Reviews"
+    }
+  ],
+  "charts": [],
+  "shortcuts": [
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "My Reviews",
+      "link_to": "Email Inquiry Ticket",
+      "type": "DocType",
+      "icon": "review",
+      "color": "#7b1fa2",
+      "format": "{} Pending",
+      "stats_filter": "{\"application_engineer\": [\"=\", \"frappe.session.user\"], \"workflow_state\": \"Application Engineer Review\"}",
+      "filters_json": "{\"application_engineer\": [\"=\", \"frappe.session.user\"], \"workflow_state\": \"Application Engineer Review\"}"
+    },
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "All Inquiry Tickets",
+      "link_to": "Email Inquiry Ticket",
+      "type": "DocType",
+      "icon": "list",
+      "color": "#2490ef"
+    }
+  ],
+  "links": [
+    {
+      "doctype": "Workspace Link",
+      "label": "Email Inquiry Ticket",
+      "link_to": "Email Inquiry Ticket",
+      "link_type": "DocType",
+      "type": "Link",
+      "onboard": 1
+    },
+    {
+      "doctype": "Workspace Link",
+      "label": "Inquiry Follow-Up",
+      "link_to": "Inquiry Follow-Up",
+      "link_type": "DocType",
+      "type": "Link"
+    }
+  ],
+  "creation": "2026-05-19 00:00:00.000000",
+  "modified": "2026-05-19 00:00:00.000000",
+  "owner": "Administrator",
+  "modified_by": "Administrator"
+}

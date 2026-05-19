@@ -1,0 +1,1 @@
+# DocType module registry

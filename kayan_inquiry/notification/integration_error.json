@@ -1,0 +1,26 @@
+{
+  "doctype": "Notification",
+  "docstatus": 0,
+  "name": "Inquiry Integration Error",
+  "enabled": 1,
+  "channel": "Email",
+  "send_system_notification": 1,
+  "document_type": "Email Inquiry Ticket",
+  "event": "Custom",
+  "method": "kayan_inquiry.kayan_inquiry.notification.integration_error.trigger_integration_error_notification",
+  "condition": "",
+  "recipients": [
+    {
+      "doctype": "Notification Recipient",
+      "receiver_by_role": "Inquiry Admin"
+    }
+  ],
+  "subject": "[Integration Error] Inquiry API Failure \u2014 {{ doc.name }}",
+  "message": "<div style=\"font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; max-width: 640px; margin: 0 auto;\">\n  <div style=\"background: #b71c1c; color: #ffffff; padding: 16px 24px; border-radius: 8px 8px 0 0;\">\n    <h2 style=\"margin: 0; font-size: 18px;\">\u274c Integration Error Detected</h2>\n  </div>\n  <div style=\"background: #ffffff; padding: 24px; border: 1px solid #e0e0e0;\">\n    <div style=\"background: #ffebee; border-left: 4px solid #b71c1c; padding: 12px 16px; margin-bottom: 16px; border-radius: 0 4px 4px 0;\">\n      <strong style=\"color: #b71c1c;\">An integration error has occurred in the Inquiry processing pipeline.</strong>\n      <p style=\"margin: 8px 0 0; color: #333;\">The system encountered an error while processing an inquiry through the API. Please investigate and resolve this issue to prevent data loss or delayed ticket creation.</p>\n    </div>\n    <table style=\"width: 100%; border-collapse: collapse; margin-bottom: 16px;\">\n      <tr>\n        <td style=\"padding: 8px 12px; background: #ffebee; border: 1px solid #e0e0e0; font-weight: 600; width: 35%; color: #555;\">Ticket ID</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.name }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #ffebee; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Subject</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.email_subject or 'N/A' }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #ffebee; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Email From</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.email_from or 'N/A' }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #ffebee; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Current State</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ doc.workflow_state or 'Unknown' }}</td>\n      </tr>\n      <tr>\n        <td style=\"padding: 8px 12px; background: #ffebee; border: 1px solid #e0e0e0; font-weight: 600; color: #555;\">Error Timestamp</td>\n        <td style=\"padding: 8px 12px; border: 1px solid #e0e0e0; color: #333;\">{{ frappe.utils.now_datetime() }}</td>\n      </tr>\n    </table>\n    <div style=\"background: #f5f5f5; padding: 12px; border-radius: 4px; margin-bottom: 16px;\">\n      <strong style=\"color: #555; font-size: 13px;\">Recommended Actions:</strong>\n      <ul style=\"margin: 8px 0 0; padding-left: 20px; color: #333; font-size: 13px;\">\n        <li>Check the Error Log in ERPNext for full stack trace</li>\n        <li>Verify email account connectivity and API credentials</li>\n        <li>Check if the source email is still in the inbox for reprocessing</li>\n        <li>Manually create the ticket if auto-creation failed</li>\n      </ul>\n    </div>\n    <div style=\"text-align: center; margin-top: 20px;\">\n      <a href=\"{{ frappe.utils.get_url_to_form('Email Inquiry Ticket', doc.name) }}\" style=\"display: inline-block; background: #b71c1c; color: #ffffff; padding: 10px 28px; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 14px; margin-right: 8px;\">View Ticket</a>\n      <a href=\"{{ frappe.utils.get_url_to_list('Error Log') }}\" style=\"display: inline-block; background: #ffffff; color: #b71c1c; padding: 9px 28px; text-decoration: none; border-radius: 5px; font-weight: 600; font-size: 14px; border: 2px solid #b71c1c;\">View Error Logs</a>\n    </div>\n  </div>\n  <div style=\"background: #f8f9fa; padding: 12px 24px; border: 1px solid #e0e0e0; border-top: none; border-radius: 0 0 8px 8px; text-align: center;\">\n    <p style=\"margin: 0; font-size: 12px; color: #888;\">Kayan Inquiry Management System \u2014 System Alerts</p>\n  </div>\n</div>",
+  "attach_print": 0,
+  "module": "Kayan Inquiry",
+  "creation": "2026-05-19 00:00:00.000000",
+  "modified": "2026-05-19 00:00:00.000000",
+  "owner": "Administrator",
+  "modified_by": "Administrator"
+}

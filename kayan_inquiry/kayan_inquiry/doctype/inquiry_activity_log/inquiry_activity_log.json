@@ -1,0 +1,69 @@
+{
+  "actions": [],
+  "creation": "2026-05-19 00:00:00",
+  "doctype": "DocType",
+  "editable_grid": 0,
+  "engine": "InnoDB",
+  "field_order": [
+    "timestamp",
+    "action",
+    "performed_by",
+    "old_value",
+    "new_value",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "timestamp",
+      "fieldtype": "Datetime",
+      "label": "Timestamp",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 2,
+      "read_only": 1
+    },
+    {
+      "fieldname": "action",
+      "fieldtype": "Data",
+      "label": "Action",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 4,
+      "read_only": 1
+    },
+    {
+      "fieldname": "performed_by",
+      "fieldtype": "Link",
+      "label": "Performed By",
+      "options": "User",
+      "in_list_view": 1,
+      "columns": 2,
+      "read_only": 1
+    },
+    {
+      "fieldname": "old_value",
+      "fieldtype": "Data",
+      "label": "Old Value",
+      "read_only": 1
+    },
+    {
+      "fieldname": "new_value",
+      "fieldtype": "Data",
+      "label": "New Value",
+      "read_only": 1
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes",
+      "read_only": 1
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-05-19 00:00:00",
+  "modified_by": "Administrator",
+  "module": "Kayan Inquiry",
+  "name": "Inquiry Activity Log",
+  "owner": "Administrator",
+  "permissions": []
+}

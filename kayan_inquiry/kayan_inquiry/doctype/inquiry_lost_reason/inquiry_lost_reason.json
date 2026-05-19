@@ -1,0 +1,70 @@
+{
+  "actions": [],
+  "autoname": "field:reason_name",
+  "creation": "2026-05-19 00:00:00",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "reason_name",
+    "category",
+    "active",
+    "section_desc",
+    "description"
+  ],
+  "fields": [
+    {
+      "fieldname": "reason_name",
+      "fieldtype": "Data",
+      "label": "Reason Name",
+      "reqd": 1,
+      "in_list_view": 1,
+      "bold": 1
+    },
+    {
+      "fieldname": "category",
+      "fieldtype": "Select",
+      "label": "Category",
+      "options": "Price\nCompetitor\nTiming\nNo Response\nTechnical\nBudget Cancelled\nOther",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "active",
+      "fieldtype": "Check",
+      "label": "Active",
+      "default": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "section_desc",
+      "fieldtype": "Section Break"
+    },
+    {
+      "fieldname": "description",
+      "fieldtype": "Text",
+      "label": "Description"
+    }
+  ],
+  "modified": "2026-05-19 00:00:00",
+  "modified_by": "Administrator",
+  "module": "Kayan Inquiry",
+  "name": "Inquiry Lost Reason",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "create": 1,
+      "read": 1,
+      "write": 1,
+      "delete": 1,
+      "role": "Inquiry Admin"
+    },
+    {
+      "read": 1,
+      "role": "Inquiry Sales Engineer"
+    },
+    {
+      "read": 1,
+      "role": "Inquiry Sales Manager"
+    }
+  ],
+  "title_field": "reason_name"
+}

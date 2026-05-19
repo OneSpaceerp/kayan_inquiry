@@ -1,0 +1,103 @@
+{
+  "actions": [],
+  "autoname": "format:KYN-AIL-{YYYY}-{#####}",
+  "creation": "2026-05-19 00:00:00",
+  "doctype": "DocType",
+  "engine": "InnoDB",
+  "field_order": [
+    "ticket",
+    "stage",
+    "model_used",
+    "timestamp",
+    "column_break_1",
+    "confidence_score",
+    "prompt_tokens",
+    "completion_tokens",
+    "processing_time_ms",
+    "section_response",
+    "raw_response"
+  ],
+  "fields": [
+    {
+      "fieldname": "ticket",
+      "fieldtype": "Link",
+      "label": "Inquiry Ticket",
+      "options": "Email Inquiry Ticket",
+      "reqd": 1,
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "stage",
+      "fieldtype": "Select",
+      "label": "Stage",
+      "options": "Classification\nExtraction\nDraft Reply\nDraft Quotation",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "model_used",
+      "fieldtype": "Data",
+      "label": "Model Used",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "timestamp",
+      "fieldtype": "Datetime",
+      "label": "Timestamp",
+      "in_list_view": 1
+    },
+    {
+      "fieldname": "column_break_1",
+      "fieldtype": "Column Break"
+    },
+    {
+      "fieldname": "confidence_score",
+      "fieldtype": "Float",
+      "label": "Confidence Score"
+    },
+    {
+      "fieldname": "prompt_tokens",
+      "fieldtype": "Int",
+      "label": "Prompt Tokens"
+    },
+    {
+      "fieldname": "completion_tokens",
+      "fieldtype": "Int",
+      "label": "Completion Tokens"
+    },
+    {
+      "fieldname": "processing_time_ms",
+      "fieldtype": "Int",
+      "label": "Processing Time (ms)"
+    },
+    {
+      "fieldname": "section_response",
+      "fieldtype": "Section Break",
+      "label": "Raw AI Response",
+      "collapsible": 1
+    },
+    {
+      "fieldname": "raw_response",
+      "fieldtype": "Long Text",
+      "label": "Raw Response (JSON)",
+      "read_only": 1
+    }
+  ],
+  "modified": "2026-05-19 00:00:00",
+  "modified_by": "Administrator",
+  "module": "Kayan Inquiry",
+  "name": "Inquiry AI Log",
+  "owner": "Administrator",
+  "permissions": [
+    {
+      "read": 1,
+      "role": "Inquiry Admin"
+    },
+    {
+      "read": 1,
+      "role": "Inquiry Sales Manager"
+    }
+  ],
+  "sort_field": "timestamp",
+  "sort_order": "DESC",
+  "title_field": "stage"
+}

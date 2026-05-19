@@ -1,0 +1,61 @@
+{
+  "actions": [],
+  "creation": "2026-05-19 00:00:00",
+  "doctype": "DocType",
+  "editable_grid": 1,
+  "engine": "InnoDB",
+  "field_order": [
+    "assigned_to",
+    "role",
+    "assigned_by",
+    "assigned_at",
+    "notes"
+  ],
+  "fields": [
+    {
+      "fieldname": "assigned_to",
+      "fieldtype": "Link",
+      "label": "Assigned To",
+      "options": "User",
+      "reqd": 1,
+      "in_list_view": 1,
+      "columns": 3
+    },
+    {
+      "fieldname": "role",
+      "fieldtype": "Select",
+      "label": "Role",
+      "options": "Sales Engineer\nApplication Engineer\nSales Manager",
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "assigned_by",
+      "fieldtype": "Link",
+      "label": "Assigned By",
+      "options": "User",
+      "in_list_view": 1,
+      "columns": 3
+    },
+    {
+      "fieldname": "assigned_at",
+      "fieldtype": "Datetime",
+      "label": "Assigned At",
+      "in_list_view": 1,
+      "columns": 2
+    },
+    {
+      "fieldname": "notes",
+      "fieldtype": "Small Text",
+      "label": "Notes",
+      "columns": 2
+    }
+  ],
+  "istable": 1,
+  "modified": "2026-05-19 00:00:00",
+  "modified_by": "Administrator",
+  "module": "Kayan Inquiry",
+  "name": "Inquiry Assignment Log",
+  "owner": "Administrator",
+  "permissions": []
+}

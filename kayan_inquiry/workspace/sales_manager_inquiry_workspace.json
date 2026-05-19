@@ -1,0 +1,134 @@
+{
+  "doctype": "Workspace",
+  "docstatus": 0,
+  "name": "Sales Manager Inquiry Workspace",
+  "module": "Kayan Inquiry",
+  "label": "Sales Manager Inquiry Workspace",
+  "title": "Inquiry Pipeline Overview",
+  "icon": "dashboard",
+  "is_standard": 1,
+  "public": 1,
+  "for_user": "",
+  "sequence_id": 5,
+  "roles": [
+    {
+      "doctype": "Has Role",
+      "role": "Inquiry Sales Manager"
+    }
+  ],
+  "content": "[{\"id\":\"mgr_header_block\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h4'><b>Inquiry Pipeline Overview</b></span>\",\"col\":12}},{\"id\":\"mgr_nc_total_open\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Open Tickets\",\"col\":3}},{\"id\":\"mgr_nc_won_30d\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Won Last 30 Days\",\"col\":3}},{\"id\":\"mgr_nc_lost_30d\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Lost Last 30 Days\",\"col\":3}},{\"id\":\"mgr_nc_sla_breached\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"SLA Breached Tickets\",\"col\":3}},{\"id\":\"mgr_spacer_1\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mgr_chart_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h6'><b>Analytics</b></span>\",\"col\":12}},{\"id\":\"mgr_chart_funnel\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Inquiry Pipeline Funnel\",\"col\":6}},{\"id\":\"mgr_chart_workload\",\"type\":\"chart\",\"data\":{\"chart_name\":\"SE Team Workload\",\"col\":6}},{\"id\":\"mgr_spacer_2\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mgr_shortcuts_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h6'><b>Quick Actions</b></span>\",\"col\":12}},{\"id\":\"mgr_shortcut_all\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"All Tickets\",\"col\":3}},{\"id\":\"mgr_shortcut_breached\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Breached Tickets\",\"col\":3}},{\"id\":\"mgr_shortcut_se_mapping\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"SE Mapping\",\"col\":3}},{\"id\":\"mgr_shortcut_lost_reasons\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Lost Reasons\",\"col\":3}},{\"id\":\"mgr_spacer_3\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"mgr_links_header\",\"type\":\"header\",\"data\":{\"text\":\"<span class='h6'><b>Master Data</b></span>\",\"col\":12}}]",
+  "number_cards": [
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "Total Open Tickets",
+      "label": "Total Open"
+    },
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "Won Last 30 Days",
+      "label": "Won (30d)"
+    },
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "Lost Last 30 Days",
+      "label": "Lost (30d)"
+    },
+    {
+      "doctype": "Workspace Number Card",
+      "number_card_name": "SLA Breached Tickets",
+      "label": "SLA Breached"
+    }
+  ],
+  "charts": [
+    {
+      "doctype": "Workspace Chart",
+      "chart_name": "Inquiry Pipeline Funnel",
+      "label": "Pipeline Funnel"
+    },
+    {
+      "doctype": "Workspace Chart",
+      "chart_name": "SE Team Workload",
+      "label": "Team Workload"
+    }
+  ],
+  "shortcuts": [
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "All Tickets",
+      "link_to": "Email Inquiry Ticket",
+      "type": "DocType",
+      "icon": "list",
+      "color": "#2490ef",
+      "format": "{} Total"
+    },
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "Breached Tickets",
+      "link_to": "Email Inquiry Ticket",
+      "type": "DocType",
+      "icon": "warning-sign",
+      "color": "#d32f2f",
+      "format": "{} Breached",
+      "stats_filter": "{\"sla_status\": \"Breached\"}",
+      "filters_json": "{\"sla_status\": \"Breached\"}"
+    },
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "SE Mapping",
+      "link_to": "Sales Engineer Mapping",
+      "type": "DocType",
+      "icon": "users",
+      "color": "#7578F6"
+    },
+    {
+      "doctype": "Workspace Shortcut",
+      "label": "Lost Reasons",
+      "link_to": "Inquiry Lost Reason",
+      "type": "DocType",
+      "icon": "tag",
+      "color": "#616161"
+    }
+  ],
+  "links": [
+    {
+      "doctype": "Workspace Link",
+      "label": "Email Inquiry Ticket",
+      "link_to": "Email Inquiry Ticket",
+      "link_type": "DocType",
+      "type": "Link",
+      "onboard": 1
+    },
+    {
+      "doctype": "Workspace Link",
+      "label": "Inquiry Follow-Up",
+      "link_to": "Inquiry Follow-Up",
+      "link_type": "DocType",
+      "type": "Link"
+    },
+    {
+      "doctype": "Workspace Link",
+      "label": "Sales Engineer Mapping",
+      "link_to": "Sales Engineer Mapping",
+      "link_type": "DocType",
+      "type": "Link"
+    },
+    {
+      "doctype": "Workspace Link",
+      "label": "Inquiry Lost Reason",
+      "link_to": "Inquiry Lost Reason",
+      "link_type": "DocType",
+      "type": "Link"
+    },
+    {
+      "doctype": "Workspace Link",
+      "label": "Quotation",
+      "link_to": "Quotation",
+      "link_type": "DocType",
+      "type": "Link"
+    }
+  ],
+  "creation": "2026-05-19 00:00:00.000000",
+  "modified": "2026-05-19 00:00:00.000000",
+  "owner": "Administrator",
+  "modified_by": "Administrator"
+}
