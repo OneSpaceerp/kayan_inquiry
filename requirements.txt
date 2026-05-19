@@ -1,2 +1,3 @@
-frappe
-anthropic>=0.25.0
+# Kayan Inquiry has no additional pip dependencies.
+# frappe is managed by bench and should NOT be listed here.
+# Claude AI calls are handled by n8n (external), not by this app.
